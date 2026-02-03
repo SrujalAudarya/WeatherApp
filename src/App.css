@@ -136,3 +136,28 @@ body {
 .news-card{
   border-radius: 5px;
 }
+
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #FF8C42 !important;
+    font-weight: bold;
+    border-bottom: 2px solid #4dabf7;
+}
+
+/* App.css */
+
+/* Custom Transparent Navbar */
+.transparent-nav {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);   
+  -webkit-backdrop-filter: blur(10px);
+  position: absolute;             
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;                 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.content-container {
+  padding-top: 80px;
+}
