@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaPlus, FaEdit, FaTrash, FaCheck } from 'react-icons/fa'; // Import Icons
 
 function TodoList() {
   const [inputData, setInputData] = useState(''); // Initialize as empty string
-  const [taskList, setTaskList] = useState([]);
   const [toggleButton, setToggleButton] = useState(true);
   const [editedItem, setEditedItem] = useState(null);
+  const [taskList, setTaskList] = useState(() => {
+  const storedTasks = localStorage.getItem('taskList');
+  return storedTasks ? JSON.parse(storedTasks) : [];
+});
 
   const addTask = () => {
     try {
@@ -44,6 +47,10 @@ function TodoList() {
     setInputData(modifiedTask.name);
     setEditedItem(id);
   };
+
+  useEffect(() => {
+      localStorage.setItem('taskList', JSON.stringify(taskList));
+  }, [taskList]);
 
   return (
     <div className="container mt-5">
